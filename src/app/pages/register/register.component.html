@@ -1,37 +1,38 @@
-<div class="card" style="width: 20rem">
+<div class="card py-1 mb-2" style="width: 23rem">
   <div class="card-body">
     <div class="card-title"></div>
+    <div class="text-center text-uppercase fw-bolder py-2">
+      Registre-se para ver as fotos de seus amigos e familiares
+    </div>
 
     <form>
-      <div class="form-group">
-        <input type="email" class="form-control" placeholder="E-mail" />
-      </div>
       <div class="form-group py-2">
+        <input type="email" class="form-control" placeholder="Email" />
+      </div>
+      <div class="form-group pb-2">
         <input type="text" class="form-control" placeholder="Nome completo" />
       </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nome de usuário" />
+      <div class="form-group pb-2">
+        <input type="text" class="form-control" placeholder="Nome de Usuario" />
       </div>
-      <div class="form-group py-2">
-        <input type="password" class="form-control" placeholder="Senha" />
+      <div class="form-group pb-2">
+        <input type="password" class="form-control" placeholder="Palavra-passe" />
       </div>
-      <button type="submit" class="btn btn-primary btn-sm btn-block">
-        Cadastre-se
-      </button>
+      <div class="d-grid gap-2 my-3">
+        <button class="btn btn-primary disabled" type="button">Registrar</button>
+      </div>
     </form>
     <hr />
 
-    <p class="small text-center">
-      Ao cadastrar-se, você concorda com nossos <b>Termos</b> e
-      <b>Política de Privacidade</b>.
-    </p>
+    <div class="text-center py-2">
+      <p class="small text-muted text-center">
+        Com este registo, aceita os nossos Termos, a Política de Dados e a Política de Cookies.
+      </p>
+    </div>
   </div>
 </div>
-<br />
-<div class="card" style="width: 20rem">
-  <div class="card-body">
-    <p class="card-text">
-      Tem uma conta? <a href="#" class="card-link">Faça login</a>
-    </p>
-  </div>
+<div class="card pt-3">
+  <p class="text-center">
+    Tem uma conta? <a (click)="exibirPainelLogin()" href="#">Iniciar sessão</a>
+  </p>
 </div>

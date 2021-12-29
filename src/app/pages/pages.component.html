@@ -1,12 +1,20 @@
-<body class="bg-light pt-3">
+<body class="bg-light pt-5">
   <div class="container pt-5">
     <div class="row align-items-center">
-      <div class="col-sm-6 d-flex justify-content-end">
+      <div class="col-sm-6 d-flex justify-content-end" [@animacao-banner]="estadoBanner">
         <app-banner></app-banner>
       </div>
-      <div class="col-sm-6 d-flex justify-content-start">
-        <app-login></app-login>
+      <div
+        *ngIf="cadastro; else formLogin"
+        class="col-sm-6 d-flex justify-content-start"
+        [@animacao-painel]="estadoPainel">
+        <app-register (exibirPainel)="exibirPainel($event)"></app-register>
       </div>
+      <ng-template #formLogin>
+        <div class="col-sm-6 d-flex justify-content-start" [@animacao-painel]="estadoPainel">
+          <app-login (exibirPainel)="exibirPainel($event)"></app-login>
+        </div>
+      </ng-template>
     </div>
   </div>
 </body>
