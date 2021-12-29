@@ -1,38 +1,94 @@
 <div class="card py-1 mb-2" style="width: 23rem">
   <div class="card-body">
-    <div class="card-title"></div>
+    <a href="https://www.instagram.com/devsleonardo/"><div class="card-title"></div></a>
     <div class="text-center text-uppercase fw-bolder py-2">
       Registre-se para ver as fotos de seus amigos e familiares
     </div>
 
-    <form>
+    <form [formGroup]="form" class="needs-validation" (ngSubmit)="cadastrarUsuario()">
       <div class="form-group py-2">
-        <input type="email" class="form-control" placeholder="Email" />
+        <input type="email" class="form-control" placeholder="Email" formControlName="email" />
+        <small
+          *ngIf="!form.get('email').valid && form.get('email').touched"
+          class="form-text text-danger"
+          >Email incompleto</small
+        >
       </div>
       <div class="form-group pb-2">
-        <input type="text" class="form-control" placeholder="Nome completo" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nome completo"
+          formControlName="nameFull" />
+        <small
+          *ngIf="!form.get('nameFull').valid && form.get('nameFull').touched"
+          class="form-text text-danger"
+          >Nome incompleto</small
+        >
       </div>
       <div class="form-group pb-2">
-        <input type="text" class="form-control" placeholder="Nome de Usuario" />
+        <div class="input-group">
+          <span class="input-group-text">@</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nome de usuario"
+            formControlName="nameUser" />
+        </div>
+        <small
+          *ngIf="!form.get('nameUser').valid && form.get('nameUser').touched"
+          class="form-text text-danger"
+          >Nome de usuário já existe</small
+        >
       </div>
       <div class="form-group pb-2">
-        <input type="password" class="form-control" placeholder="Palavra-passe" />
+        <div class="input-group has-validation">
+          <span class="input-group-text">+55</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="(51) 9999-9999"
+            formControlName="numberPhone" />
+        </div>
+        <small
+          *ngIf="!form.get('numberPhone').valid && form.get('numberPhone').touched"
+          class="form-text text-danger"
+          >Telefone não existe</small
+        >
+      </div>
+
+      <div class="form-group pb-2">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Senha de acesso"
+          formControlName="password" />
+        <small
+          *ngIf="!form.get('password').valid && form.get('password').touched"
+          class="form-text text-danger"
+          >Senha muito fraca</small
+        >
       </div>
       <div class="d-grid gap-2 my-3">
-        <button class="btn btn-primary disabled" type="button">Registrar</button>
+        <button class="btn btn-primary" [disabled]="!form.valid" type="submit">
+          Registrar
+        </button>
       </div>
     </form>
     <hr />
 
     <div class="text-center py-2">
       <p class="small text-muted text-center">
-        Com este registo, aceita os nossos Termos, a Política de Dados e a Política de Cookies.
+        Com este registro, você aceita os nossos
+        <a href="https://github.com/devsleonardo">Termos</a>, a
+        <a href="https://github.com/devsleonardo">Política de Dados</a> e a
+        <a href="https://github.com/devsleonardo">Política de Cookies.</a>
       </p>
     </div>
   </div>
 </div>
 <div class="card pt-3">
   <p class="text-center">
-    Tem uma conta? <a (click)="exibirPainelLogin()" href="#">Iniciar sessão</a>
+    Já tem uma conta? <a (click)="exibirPainelLogin()" href="">Iniciar sessão</a>
   </p>
 </div>
