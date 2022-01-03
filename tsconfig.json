@@ -4,6 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "skipLibCheck": true, //Para utilizar o angular/fire
     "strictPropertyInitialization": false,   // Não necessário adicionar propriedades iniciais
     "strictNullChecks":false, // verificações nulas rigorosas
     "forceConsistentCasingInFileNames": true,

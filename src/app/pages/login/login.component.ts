@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     this.exibirPainel.emit('cadastro');
   }
 
-  public loginUsuario(): void {
+  public loginUser(): void {
     console.log(this.form.value);
   }
 }

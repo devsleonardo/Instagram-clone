@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "instagramclone-8aaf7": {
+      "hosting": {
+        "app3": [
+          "instagramclone-8aaf7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "instagramclone-8aaf7"
+  }
+}
