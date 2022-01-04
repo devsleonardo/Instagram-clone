@@ -1,0 +1,45 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <form [formGroup]="form" (ngSubmit)="postNew()">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Criar nova publicação</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input
+            type="text"
+            placeholder="Título da publicação"
+            formControlName="titulo"
+            class="form-control placeholder-glow" />
+          <div class="m-0">
+            <h6 type="text" class="text-center text-muted my-5 p-5">
+              Arraste as fotos e os vídeos aqui
+            </h6>
+            <input
+              type="file"
+              class="btn btn-primary form-control"
+              accept="image/*"
+              (change)="prevImageUpload($event)" />
+          </div>
+        </div>
+        <div class="modal-footer mx-auto d-block">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary">Publicar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

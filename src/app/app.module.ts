@@ -5,7 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './shared/routes/app.routes';
+
 import { AuthService } from './shared/service/auth.service';
+import { AuthGuard } from './shared/service/auth-guard.service';
+import { Bd } from './shared/service/bd.service';
 
 /*App*/
 import { AppComponent } from './app.component';
@@ -25,6 +30,9 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { HomeComponent } from './pages/home/home.component';
+import { PostComponent } from './pages/post/post.component';
+import { PostNewComponent } from './pages/home/post-new/post-new.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +41,9 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     BannerComponent,
     LoginComponent,
     RegisterComponent,
+    HomeComponent,
+    PostComponent,
+    PostNewComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,13 +51,14 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(ROUTES),
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [AuthService, { provide: LOCALE_ID, useValue: 'pt-BR' }],
+  providers: [AuthService, AuthGuard, Bd, { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

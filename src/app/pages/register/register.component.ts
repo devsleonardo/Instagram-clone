@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerUser(): void {
-    let user: UserModel = new UserModel(
+    const user: UserModel = new UserModel(
       this.form.value.email,
       this.form.value.nameFull,
       this.form.value.nameUser,
@@ -52,6 +52,8 @@ export class RegisterComponent implements OnInit {
       this.form.value.password
     );
 
-    this.authService.registerUser(user);
+    this.authService.registerUser(user).subscribe(() => {
+      alert('Cadastro Concluido'), this.exibirPainelLogin();
+    });
   }
 }

@@ -31,6 +31,9 @@
         <button class="btn btn-primary" [disabled]="!form.valid" type="submit">
           Iniciar sessão
         </button>
+        <div *ngIf="loginUpp !== undefined">
+          <small class="form-text text-danger"> Nome de usuário ou senha é inválido!</small>
+        </div>
       </div>
     </form>
     <hr />
